@@ -42,15 +42,36 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  str = "Hello, " + name
+  return str
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  if s.length < 1 or s.match(/\d/) or s.match(/\W/) #check if zero length string or if there is any numbers
+    return false
+  end
+  vowels = ['a', 'e', 'i', 'o', 'u'] #array of non-consonants
+  char = s[0].downcase #get and lowercase first char in input str
+  
+  for i in vowels do #check if string has vowels
+    if char == i
+      return false
+    end
+  end
+  return true
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s !~ /[^01]/ and s.length > 0 #checks if binary number
+    if s.to_i(2) % 4 == 0
+      return true
+    else
+      return false
+    end
+  else
+    return false
+  end
+  
 end
 
 # Part 3
